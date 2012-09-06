@@ -1,6 +1,4 @@
-WSGEN
+wsgen
 =====
 
-Projeto que ilustra a criação de clientes de webservices SOAP utilizando MAVEN com o plugin jaxws-maven-plugin.
-
-
+Maven JAXWS SOAP webservice client gen plugin demonstration

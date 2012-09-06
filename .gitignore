@@ -41,3 +41,10 @@ Thumbs.db
 # MAVEN target
 ##############
 target/
+=======
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
