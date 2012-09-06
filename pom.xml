@@ -13,6 +13,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Versão da JDK -->
 		<java.version>1.6</java.version>
+
+		<!-- JAXB -->
+		<jaxb.version>2.2.6</jaxb.version>
+		<jaxws-rt.version>2.2.7</jaxws-rt.version>
+		<jaxws-api.version>2.2.8</jaxws-api.version>
+		<jaxws-tools.version>2.2.7</jaxws-tools.version>
+		<stax-ex.version>1.7.1</stax-ex.version>
 	</properties>
 
 	<!-- módulos -->
