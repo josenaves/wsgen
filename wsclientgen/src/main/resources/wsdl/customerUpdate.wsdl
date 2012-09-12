@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="CustomerUpdateServiceService" targetNamespace="http://customer.simulator.brm.sga.oi.com.br/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://customer.simulator.brm.sga.oi.com.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://customer.simulator.brm.sga.oi.com.br/" version="1.0" xmlns:tns="http://customer.simulator.brm.sga.oi.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="update" type="tns:update" />
+<xs:element name="updateResponse" type="tns:updateResponse" />
+<xs:complexType name="update">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:customer" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customer">
+<xs:sequence>
+<xs:element minOccurs="0" name="id" type="xs:string" />
+<xs:element minOccurs="0" name="name" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="updateResponse">
+    <wsdl:part element="tns:updateResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="update">
+    <wsdl:part element="tns:update" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerUpdateService">
+    <wsdl:operation name="update">
+      <wsdl:input message="tns:update" name="update">
+    </wsdl:input>
+      <wsdl:output message="tns:updateResponse" name="updateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerUpdateServiceServiceSoapBinding" type="tns:CustomerUpdateService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="update">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="update">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerUpdateServiceService">
+    <wsdl:port binding="tns:CustomerUpdateServiceServiceSoapBinding" name="CustomerUpdateServicePort">
+      <soap:address location="http://localhost:8080/sga-brm-simulator/customer/update" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

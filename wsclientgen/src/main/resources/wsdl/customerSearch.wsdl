@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="CustomerSearchServiceService" targetNamespace="http://customer.simulator.brm.sga.oi.com.br/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://customer.simulator.brm.sga.oi.com.br/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://customer.simulator.brm.sga.oi.com.br/" version="1.0" xmlns:tns="http://customer.simulator.brm.sga.oi.com.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="search" type="tns:search" />
+<xs:element name="searchResponse" type="tns:searchResponse" />
+<xs:complexType name="search">
+<xs:sequence>
+<xs:element minOccurs="0" name="example" type="tns:customer" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="customer">
+<xs:sequence>
+<xs:element minOccurs="0" name="id" type="xs:string" />
+<xs:element minOccurs="0" name="name" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="searchResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:customer" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="searchResponse">
+    <wsdl:part element="tns:searchResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="search">
+    <wsdl:part element="tns:search" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerSearchService">
+    <wsdl:operation name="search">
+      <wsdl:input message="tns:search" name="search">
+    </wsdl:input>
+      <wsdl:output message="tns:searchResponse" name="searchResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerSearchServiceServiceSoapBinding" type="tns:CustomerSearchService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="search">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="search">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="searchResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerSearchServiceService">
+    <wsdl:port binding="tns:CustomerSearchServiceServiceSoapBinding" name="CustomerSearchServicePort">
+      <soap:address location="http://localhost:8080/sga-brm-simulator/customer/search" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
